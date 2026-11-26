@@ -7,7 +7,7 @@ import { links, stats, skills, projects, steps } from './data.js'
 gsap.registerPlugin(ScrollTrigger)
 
 const navigation = [
-  ['hero', 'Home'],
+  ['hero', 'Homee'],
   ['about', 'About'],
   ['skills', 'Stack'],
   ['work', 'Projects'],
