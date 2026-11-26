@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+/* common style: border-radius 50% turns a square into a circle */
+.circle {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;   /* centers the child circle */
+  align-items: center;
+}
+
+/* diameter = 2 x radius */
+.c30 { width: 60px; height: 60px; background-color: tomato; }
+.c20 { width: 40px; height: 40px; background-color: gold; }
+.c10 { width: 20px; height: 20px; background-color: royalblue; }

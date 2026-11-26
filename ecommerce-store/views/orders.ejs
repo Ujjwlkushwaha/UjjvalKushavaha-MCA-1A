@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<h1 class="page-title">Your orders</h1>
+
+<% if (placed) { %>
+  <p class="success">Thank you, your order #<%= placed %> is placed. We'll pack it within a day.</p>
+<% } %>
+
+<% if (orders.length === 0) { %>
+  <p class="empty">No orders yet. <a href="/">Start shopping.</a></p>
+  <p class="muted small">Orders are remembered for this browser session only.</p>
+<% } else { %>
+  <% orders.forEach(function(o) { %>
+    <article class="order">
+      <header>
+        <div>
+          <strong>Order #<%= o.id %></strong>
+          <span class="muted"><%= fmtDate(o.date) %></span>
+        </div>
+        <span class="tag"><%= o.payment.method %><% if (o.payment.reference !== "COD") { %> · paid<% } %></span>
+      </header>
+
+      <ul>
+        <% o.items.forEach(function(i) { %>
+          <li><span><%= i.name %> × <%= i.qty %></span><span><%= money(i.price * i.qty) %></span></li>
+        <% }); %>
+        <li class="muted"><span>Delivery</span><span><%= o.delivery === 0 ? "Free" : money(o.delivery) %></span></li>
+        <li class="grand"><span>Total</span><span><%= money(o.total) %></span></li>
+      </ul>
+
+      <p class="muted small">
+        Sending to <%= o.customer.name %>, <%= o.customer.address %>, <%= o.customer.city %> <%= o.customer.pincode %>
+        <% if (o.payment.reference !== "COD") { %> · Ref <%= o.payment.reference %><% } %>
+      </p>
+    </article>
+  <% }); %>
+<% } %>
+
+<%- include("partials/footer") %>

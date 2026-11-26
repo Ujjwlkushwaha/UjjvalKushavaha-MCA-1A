@@ -1,0 +1,15 @@
+  </main>
+
+  <footer class="bottom">
+    <span><strong>thela</strong> · Useful things, chosen with care. No real payments are taken.</span>
+    <div class="footer-links">
+      <a href="/orders">Your orders</a>
+      <% if (isSeller) { %>
+        <a href="/seller">Seller panel</a>
+      <% } else { %>
+        <a href="/seller/login">Seller login</a>
+      <% } %>
+    </div>
+  </footer>
+</body>
+</html>

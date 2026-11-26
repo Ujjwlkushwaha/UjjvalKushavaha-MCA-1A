@@ -1,0 +1,85 @@
+<%- include("partials/header") %>
+
+<h1 class="page-title">Checkout</h1>
+
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+
+<form class="two-col" method="post" action="/checkout">
+  <div>
+    <fieldset>
+      <legend>Delivery</legend>
+      <label>Full name
+        <input type="text" name="name" value="<%= form.name || '' %>" required>
+      </label>
+      <label>Phone
+        <input type="text" name="phone" inputmode="numeric" maxlength="10" value="<%= form.phone || '' %>" required>
+      </label>
+      <label>Address
+        <input type="text" name="address" value="<%= form.address || '' %>" required>
+      </label>
+      <div class="pair">
+        <label>City
+          <input type="text" name="city" value="<%= form.city || '' %>" required>
+        </label>
+        <label>Pincode
+          <input type="text" name="pincode" inputmode="numeric" maxlength="6" value="<%= form.pincode || '' %>" required>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Payment</legend>
+
+      <label class="choice">
+        <input type="radio" name="method" value="card" <%= (form.method || 'card') === 'card' ? 'checked' : '' %>> Card
+      </label>
+      <div class="pay-fields" data-for="card">
+        <label>Card number
+          <input type="text" name="cardNumber" id="cardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
+        </label>
+        <div class="pair">
+          <label>Expiry
+            <input type="text" name="cardExpiry" placeholder="MM/YY" maxlength="5">
+          </label>
+          <label>CVV
+            <input type="password" name="cardCvv" inputmode="numeric" maxlength="3">
+          </label>
+        </div>
+      </div>
+
+      <label class="choice">
+        <input type="radio" name="method" value="upi" <%= form.method === 'upi' ? 'checked' : '' %>> UPI
+      </label>
+      <div class="pay-fields" data-for="upi">
+        <label>UPI ID
+          <input type="text" name="upiId" placeholder="name@upi" value="<%= form.upiId || '' %>">
+        </label>
+      </div>
+
+      <label class="choice">
+        <input type="radio" name="method" value="cod" <%= form.method === 'cod' ? 'checked' : '' %>> Cash on delivery
+      </label>
+      <div class="pay-fields" data-for="cod">
+        <p class="muted small">Pay when the order reaches you.</p>
+      </div>
+    </fieldset>
+  </div>
+
+  <aside class="summary">
+    <h2>Your order</h2>
+    <ul class="mini">
+      <% items.forEach(function(item) { %>
+        <li><span><%= item.product.name %> × <%= item.qty %></span><span><%= money(item.lineTotal) %></span></li>
+      <% }); %>
+    </ul>
+    <dl>
+      <dt>Subtotal</dt><dd><%= money(totals.subtotal) %></dd>
+      <dt>Delivery</dt><dd><%= totals.delivery === 0 ? "Free" : money(totals.delivery) %></dd>
+      <dt class="grand">Total</dt><dd class="grand"><%= money(totals.total) %></dd>
+    </dl>
+    <button class="btn full">Pay <%= money(totals.total) %></button>
+  </aside>
+</form>
+
+<script src="/checkout.js"></script>
+<%- include("partials/footer") %>

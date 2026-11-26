@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1001,
+    "date": "2026-11-25T19:07:03.924Z",
+    "items": [
+      {
+        "name": "Hand-thrown Mug",
+        "price": 520,
+        "qty": 2
+      }
+    ],
+    "subtotal": 1040,
+    "delivery": 0,
+    "total": 1040,
+    "customer": {
+      "name": "ujjwal kushwaha",
+      "phone": "8545952725",
+      "address": "none",
+      "city": "non",
+      "pincode": "234567"
+    },
+    "payment": {
+      "method": "Cash on delivery",
+      "reference": "COD"
+    }
+  }
+]

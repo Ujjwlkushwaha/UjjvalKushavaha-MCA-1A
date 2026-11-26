@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dff0e0;
+  text-align: center;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* 10 x 10 grid */
+#board {
+  display: grid;
+  grid-template-columns: repeat(10, 55px);
+  grid-template-rows: repeat(10, 55px);
+  border: 4px solid #444;
+}
+
+.cell {
+  position: relative;
+  border: 1px solid #999;
+  font-size: 11px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.cell.even { background-color: #fff6d6; }
+.cell.odd  { background-color: #d6ecff; }
+.cell.ladder { background-color: #c8f0c8; }
+.cell.snake  { background-color: #ffc9c9; }
+
+.cell .note {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* player tokens */
+.token {
+  position: absolute;
+  bottom: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.token.p1 { background-color: red;  left: 5px; }
+.token.p2 { background-color: blue; left: 28px; }
+
+.panel {
+  width: 200px;
+}
+
+#diceBox {
+  width: 70px;
+  height: 70px;
+  margin: 10px auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 36px;
+  line-height: 70px;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 4px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3b6fd4;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+#message {
+  min-height: 40px;
+  font-weight: bold;
+}
+
+.legend {
+  font-size: 13px;
+  color: #444;
+}

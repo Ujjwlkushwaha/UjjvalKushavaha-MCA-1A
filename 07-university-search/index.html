@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>University Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Find Universities by Country</h1>
+
+    <div class="search-row">
+      <input type="text" id="countryInput" placeholder="Enter a country, e.g. India">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <p id="status"></p>
+
+    <table id="resultTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>University Name</th>
+          <th>Website</th>
+          <th>State / Province</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

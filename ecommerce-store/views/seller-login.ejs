@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<div class="narrow">
+  <h1 class="page-title">Seller login</h1>
+  <% if (error) { %><p class="error"><%= error %></p><% } %>
+  <form method="post" action="/seller/login">
+    <fieldset>
+      <label>Password
+        <input type="password" name="password" required autofocus>
+      </label>
+      <button class="btn">Log in</button>
+    </fieldset>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

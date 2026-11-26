@@ -1,0 +1,5 @@
+<% if (p.image) { %>
+  <img class="tile" src="<%= p.image %>" alt="<%= p.name %>" loading="lazy" decoding="async">
+<% } else { %>
+  <div class="tile ph c<%= p.id % 6 %>"><span><%= p.name.charAt(0) %></span></div>
+<% } %>

@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+
+<section class="intro">
+  <div class="intro-copy">
+    <p class="eyebrow">Thoughtful goods for everyday living</p>
+    <h1>Make room for the little things.</h1>
+    <p>Useful, well-made objects for your desk and home. Chosen with care, made to stay.</p>
+    <a class="btn" href="#collection">Explore the collection <span aria-hidden="true">↓</span></a>
+    <p class="intro-note">Small batches · Considered materials · Made for daily use</p>
+  </div>
+  <div class="intro-image">
+    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Sunlit desk with thoughtfully arranged books and stationery" fetchpriority="high">
+    <span class="image-note">A calmer corner starts here</span>
+  </div>
+</section>
+
+<section class="collection" id="collection">
+  <div class="collection-heading">
+    <div>
+      <p class="eyebrow">Find your everyday favourite</p>
+      <h2 class="section-title">The collection</h2>
+    </div>
+    <span class="muted small"><%= products.length %> <%= products.length === 1 ? 'piece' : 'pieces' %></span>
+  </div>
+
+  <nav class="filters" aria-label="Filter products by category">
+    <% categories.forEach(function(c) { %>
+      <a href="<%= c === 'All' ? '/' : '/?cat=' + encodeURIComponent(c) %>" class="<%= c === selected ? 'on' : '' %>"<% if (c === selected) { %> aria-current="page"<% } %>><%= c %></a>
+    <% }); %>
+  </nav>
+</section>
+
+<div class="grid">
+  <% products.forEach(function(p) { %>
+    <article class="product">
+      <%- include("partials/tile", { p: p }) %>
+
+      <p class="product-category"><%= p.category %></p>
+      <div class="row">
+        <h2><%= p.name %></h2>
+        <span class="price"><%= money(p.price) %></span>
+      </div>
+      <p class="desc"><%= p.description %></p>
+
+      <% if (p.stock === 0) { %>
+        <button class="btn" disabled>Sold out</button>
+      <% } else { %>
+        <form method="post" action="/cart/add/<%= p.id %>">
+          <button class="btn">Add to cart</button>
+        </form>
+        <% if (p.stock <= 5) { %><p class="low">Only <%= p.stock %> left</p><% } %>
+      <% } %>
+    </article>
+  <% }); %>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 3,
+    "name": "Hand-thrown Mug",
+    "category": "Home",
+    "price": 520,
+    "stock": 16,
+    "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=900&q=85",
+    "description": "Glazed stoneware, about 300 ml. No two are exactly alike."
+  },
+  {
+    "id": 4,
+    "name": "Canvas Tote",
+    "category": "Bags",
+    "price": 799,
+    "stock": 30,
+    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85",
+    "description": "Heavy cotton canvas with an inside pocket. Holds a laptop and lunch."
+  },
+  {
+    "id": 5,
+    "name": "Walnut Desk Tray",
+    "category": "Desk",
+    "price": 1450,
+    "stock": 12,
+    "image": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85",
+    "description": "Keeps pens, keys and cables in one place. Oiled, not varnished."
+  },
+  {
+    "id": 6,
+    "name": "Sandalwood Candle",
+    "category": "Home",
+    "price": 450,
+    "stock": 35,
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=900&q=85",
+    "description": "Soy wax in a tin. Burns for around 40 hours."
+  },
+  {
+    "id": 7,
+    "name": "Terracotta Planter",
+    "category": "Home",
+    "price": 380,
+    "stock": 4,
+    "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=85",
+    "description": "Unglazed clay with a drainage hole. Good for small succulents."
+  },
+  {
+    "id": 8,
+    "name": "Task Lamp",
+    "category": "Desk",
+    "price": 2290,
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+    "description": "Adjustable arm, warm 2700K bulb included."
+  }
+]

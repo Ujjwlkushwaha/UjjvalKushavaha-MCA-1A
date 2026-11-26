@@ -1,0 +1,8 @@
+<%- include("partials/header") %>
+<h1>Our Services</h1>
+<ul>
+  <% services.forEach(function(service) { %>
+    <li><%= service.name %> - Rs. <%= service.price %></li>
+  <% }); %>
+</ul>
+<%- include("partials/footer") %>

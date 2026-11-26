@@ -1,0 +1,48 @@
+<%- include("partials/header") %>
+
+<h1 class="page-title">Your cart</h1>
+
+<% if (items.length === 0) { %>
+  <p class="empty">Nothing here yet. <a href="/">Have a look around the shop.</a></p>
+<% } else { %>
+  <div class="two-col">
+    <section class="lines">
+      <% items.forEach(function(item) { %>
+        <div class="line">
+          <%- include("partials/tile", { p: item.product }) %>
+
+          <div class="info">
+            <strong><%= item.product.name %></strong>
+            <span class="muted"><%= money(item.product.price) %> each</span>
+            <form method="post" action="/cart/update/<%= item.product.id %>">
+              <button class="link" name="change" value="remove">Remove</button>
+            </form>
+          </div>
+
+          <form class="stepper" method="post" action="/cart/update/<%= item.product.id %>">
+            <button name="change" value="-1" aria-label="One less">−</button>
+            <span><%= item.qty %></span>
+            <button name="change" value="1" aria-label="One more">+</button>
+          </form>
+
+          <div class="line-total"><%= money(item.lineTotal) %></div>
+        </div>
+      <% }); %>
+    </section>
+
+    <aside class="summary">
+      <h2>Summary</h2>
+      <dl>
+        <dt>Subtotal</dt><dd><%= money(totals.subtotal) %></dd>
+        <dt>Delivery</dt><dd><%= totals.delivery === 0 ? "Free" : money(totals.delivery) %></dd>
+        <dt class="grand">Total</dt><dd class="grand"><%= money(totals.total) %></dd>
+      </dl>
+      <% if (totals.delivery > 0) { %>
+        <p class="muted small">Add <%= money(totals.freeAbove - totals.subtotal) %> more for free delivery.</p>
+      <% } %>
+      <a class="btn full" href="/checkout">Go to checkout</a>
+    </aside>
+  </div>
+<% } %>
+
+<%- include("partials/footer") %>

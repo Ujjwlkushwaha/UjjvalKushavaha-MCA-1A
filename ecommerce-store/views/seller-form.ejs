@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<div class="narrow">
+  <h1 class="page-title"><%= heading %></h1>
+  <% if (error) { %><p class="error"><%= error %></p><% } %>
+
+  <form method="post" action="<%= action %>">
+    <fieldset>
+      <label>Name
+        <input type="text" name="name" value="<%= product.name %>" required>
+      </label>
+      <div class="pair">
+        <label>Category
+          <input type="text" name="category" value="<%= product.category %>" placeholder="Writing, Home, Desk..." required>
+        </label>
+        <label>Price (₹)
+          <input type="number" name="price" min="1" step="1" value="<%= product.price %>" required>
+        </label>
+      </div>
+      <div class="pair">
+        <label>Stock
+          <input type="number" name="stock" min="0" step="1" value="<%= product.stock %>" required>
+        </label>
+        <label>Image link <span class="muted">(optional)</span>
+          <input type="text" name="image" value="<%= product.image %>" placeholder="https://...">
+        </label>
+      </div>
+      <label>Description
+        <textarea name="description" rows="3" required><%= product.description %></textarea>
+      </label>
+      <div class="actions">
+        <button class="btn">Save</button>
+        <a class="btn ghost" href="/seller">Cancel</a>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

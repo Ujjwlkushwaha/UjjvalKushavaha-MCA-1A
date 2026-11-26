@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %> — Thela</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="notice">A little treat for your desk — free delivery on orders above <%= money(999) %></div>
+
+  <header class="top">
+    <a class="brand" href="/" aria-label="Thela home">thela<span>objects for slower days</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/">Shop</a>
+      <a href="/orders">Orders</a>
+      <a href="/cart" class="cart-link">Bag<% if (cartCount > 0) { %><span class="cart-count"><%= cartCount %></span><% } %></a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <% if (flash) { %><p class="flash"><%= flash %></p><% } %>
